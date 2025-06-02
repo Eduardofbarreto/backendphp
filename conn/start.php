@@ -1,39 +1,68 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-$DB_HOST = "localhost";
-$DB_NAME_ADMIN = "postgres"; // Nome do banco de dados padrão para conexão inicial
-$DB_USER = "postgres";       // Usuário com permissão para criar bancos de dados
-$DB_PASSWORD = "root";       // Senha do usuário
+$host = "127.0.0.1";
+$port = "5432";
+$user = "postgres";
+$password = "root";
+$dbname = "meu_novo_banco_de_dados";
 
-$new_db_name = "meu_novo_banco_de_dados";
+$connection_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
 
-$conn_string = "host=$DB_HOST dbname=$DB_NAME_ADMIN user=$DB_USER password=$DB_PASSWORD";
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-$conn = pg_connect($conn_string);
+    if(empty($nome)|| empty($sobrenome)|| empty($email)){
+        die("Erro: Todos os campos são obrigatórios. Por favor, volte e preencha o formulário.");
+    }
 
-if(!$conn){
+    echo "Tentando conectar ao banco de dados '$dbname' para inserir dados...<br>";
 
-    die("Erro na conexão com o PostgreSQL: " . pg_last_error());
-}
+    $conn = @pg_connect($connection_string);
 
-echo "Conexão estabelecida com sucesso ao banco padrão '$DB_NAME_ADMIN'.<br>";
+    if(!$conn){
+        die("Erro na conexão ao banco de dados '$dbname'. Verifique as configurações e se o banco existe: " . preg_last_error());
+    }
 
-$sql_create_db = "CREATE DATABASE \"$new_db_name\"";
+    echo "Conexão ao banco de dados '$dbname' estabelecida com sucesso para inserção!<br>";
 
-$result = pg_query($conn, $sql_create_db);
+    $sql_insert = "INSERT INTO MyGuests (nome, sobrenome, email) VALUES ($1, $2, $3)";
 
-if($result){
-    echo "Banco de dados \"$new_db_name\" criado com sucesso!<br>";
+    echo "Tentando inserir o registro: {$nome} {$sobrenome} ({$email})...<br>";
+
+    $prepare_result = pg_prepare($conn, "insert_guest_stmt", $sql_insert);
+
+    if(!$prepare_result){
+        echo "Erro ao preparar a declaração SQL. Verifique se a tabela 'MyGuests' existe e suas colunas: " . preg_last_error($conn) . "<br>";
+        pg_close($conn);
+        die();
+    }
+
+    $execute_result = pg_execute($conn, "insert_guest_stmt", array($nome, $sobrenome, $email));
+
+    if($execute_result){
+        if(pg_affected_rows($execute_result) > 0){
+            echo "Novo registro criado com sucesso!<br>";
+        }else{
+            echo "Nenhum registro foi inserido. Algo pode ter dado errado.<br>";
+        }
+    }else{
+        echo "Erro ao inserir registro: " . preg_last_error($conn) . "<br>";
+    }
+
+    pg_close($conn);
+    echo "Conexão fechada.<br>";
+
 }else{
-    echo "Erro ao criar o banco de dados: " . pg_last_error($conn) . "<br>";
+    echo "Este script deve ser acessado via um formulário POST. <a href='index.html'>Voltar ao formulário</a>.";
 }
 
 
-pg_close($conn);
 
-echo "Conexão com o PostgreSQL fechada.";
 
-?>
+
+
+
+
+
