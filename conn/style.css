@@ -1,3 +1,7 @@
-label {
-    color: rgb(139, 84, 11);
+body{
+    background-color: rgb(226, 209, 215);
+}
+
+.form-group{
+    text-align: left;
 }
