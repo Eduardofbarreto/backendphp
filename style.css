@@ -65,3 +65,30 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.sexo-group {
+    /* Define uma largura máxima para o bloco. Ajuste conforme necessário. */
+    max-width: 200px; /* Exemplo: 200 pixels. Pode ser 50%, 300px, etc. */
+    margin: 0 auto;   /* Centraliza o bloco horizontalmente */
+
+    /* Mantenha as regras anteriores para organizar os rádios dentro do grupo */
+    margin-bottom: 15px;
+}
+
+.sexo-group p {
+    margin-bottom: 5px;
+    text-align: center; /* Centraliza o texto "Sexo:" dentro do seu p */
+}
+
+.sexo-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    /* Adicione text-align: center se quiser centralizar o conteúdo interno da div também */
+    /* text-align: center; */ /* NÃO USE AQUI se display:flex já estiver alinhando */
+    justify-content: center; /* Se a div flex for menor que o conteúdo, isso centraliza o conteúdo dentro dela */
+}
+
+.sexo-group input[type="radio"] {
+    margin-right: 5px;
+}

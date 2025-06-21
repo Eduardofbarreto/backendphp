@@ -19,12 +19,28 @@
             <label for="endereco">Endereço: </label>
             <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço: ">
 
+            <div class="sexo-group">
+                <p>Sexo:</p>
+                <div>
+                    <input type="radio" id="masculino" name="sexo" value="Masculino">
+                    <label for="masculino">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" id="feminino" name="sexo" value="Feminino">
+                    <label for="feminino">Feminino</label>
+                </div>
+            </div>
+
             <div class="area">
                 <h3>Escolha a área de atuação:</h3>
                 <label for="area">Área:</label>
                 <select name="area" id="area" required>
                     <option value="moda">Moda</option>
                     <option value="saude">Saude</option>
+                    <option value="bem-estar">Bem estar</option>
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="marketing">Marketing<option>
+                    <option value="gestao">Gestão</option>
                 </select>
                 </ul>
             </div>
