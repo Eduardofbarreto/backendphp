@@ -14,8 +14,11 @@ $sucesso_operacao = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $nome = $_POST['nome'] ?? '';
-    $idade = $_POST['idade'] ?? '';
-    $endereco = $POST['endereco'] ?? '';
+    $data_nascimento = $_POST['idade'] ?? '';
+    $endereco = $_POST['endereco'] ?? '';
+    $sexo = $_POST['sexo'] ?? '';
+    $area = $_POST['area'] ?? '';
+
 
     
     if (empty($nome)) {
