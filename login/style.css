@@ -10,4 +10,13 @@ body {
 
 .container h1{
     color: chocolate;
+    text-align: center;
+}
+
+.container label{
+    text-align: center;
+}
+
+.form-group label{
+    text-align: center;
 }
