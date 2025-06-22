@@ -1,39 +1,20 @@
 <?php
+// Configurações do banco de dados
+$host = 'localhost';
+$dbname = 'meu_novo_banco_de_dados';
+$user = 'postgres';
+$password = 'root'; // ATENÇÃO: Em produção, use senhas fortes e usuários dedicados!
 
-$host = "localhost";
-$port = "5432";
-$dbname = "meu_novo_banco_de_dados";
-$user = "postgres";
-$password = "root";
+try {
+    // Cria uma nova conexão PDO (PHP Data Objects)
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
 
-$conn_string = "host={$host} port={$port} dbname={$dbname} user={$user} password={$password}";
+    // Define o modo de erro do PDO para lançar exceções em caso de erro
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$conn = pg_connect($conn_string);
-
-if(!$conn){
-    die("Connection failed: " . preg_last_error());
+    // echo "Conexão com o banco de dados realizada com sucesso!"; // Apenas para teste
+} catch (PDOException $e) {
+    // Em caso de erro na conexão, exibe a mensagem de erro
+    die("Erro na conexão com o banco de dados: " . $e->getMessage());
 }
-
-$new_database_name = "meu_novo_banco_de_dados";
-
-$check_db_sql = "SELECT 1 FROM pg_database WHERE datname = '" . pg_escape_literal($new_database_name) . "'";
-$check_db_sql = pg_query($conn, $check_db_sql);
-
-if($check_db_sql && pg_num_rows($check_db_result)>0){
-    echo "Database '{new_database_name}' alread exists. <br>";
-}else{
-    $create_db_sql = "CREATE DATABASE " . pg_escape_identifier($new_database_name);
-
-    $create_db_result = pg_query($conn, $create_db_sql);
-
-    if($create_db_result){
-        echo "Database '{$new_database_name}' created successfully. <br>";
-    }else{
-        echo "Error creating database: " . preg_last_error($conn) . "<br>";
-    }
-}
-
-pg_close($conn);
-
-
 ?>
