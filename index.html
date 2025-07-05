@@ -4,58 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Gerenciamento de Cadastro</title>
 </head>
 <body>
     <h1>Bem-vindos ao nosso site:</h1>
 
     <div class="container">
-        <form action="processar_formulario.php" method="post">
-            <div class="form-group">
-                <label for="nome">Nome: </label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome: " required>
-            </div>
-            <div class="form-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço: "
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="dataNascimento">Data de nascimento: </label>
-                <input type="text" id="dataNascimento" name="dataNascimento" placeholder="Digite sua data de nascimento: DD-MM-AAAA">
-            </div>
-            <div class="form-group">
-                <label for="cep">CEP: </label>
-                <input type="text" id="cep" name="cep" placeholder="Digite seu CEP: " maxlength="9" required>
-            </div>
-            <div class="form-group">
-                <label for="rua">Rua: </label>
-                <input type="text" name="rua" id="rua" placeholder="Rua: " readonly>
-            </div>
-            <div class="form-group">
-                <label for="numero">Número: </label>
-                <input type="text" name="numero" id="numero" placeholder="Número">
-            </div>
-            <div class="form-group">
-                <label for="bairro">Bairro: </label>
-                <input type="text" name="bairro" id="bairro" placeholder="Bairro: " readonly>
-            </div>
-            <div class="form-group">
-                <label for="cidade">Cidade: </label>
-                <input type="text" id="cidade" name="cidade" placeholder="Cidade: " readonly>
-            </div>
-            <div class="form-group">
-                <label for="estado">Estado:</label>
-                <input type="text" id="estado" name="estado" placeholder="Estado: " maxlength="2" readonly>
-            </div>
-            <div class="form-group">
-                <label for="endereco">Endereco: </label>
-                <input type="text" id="endereco" name="endereco" placeholder="Complemento do endereço (ex: apto, bloco)">
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-    <script src="script.js"></script>
+        <h2>Escolha uma opção:</h2>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="inserir_cadastro.php">Inserir Novo Cadastro</a></li>
+                <li><a href="consultar_cadastro.php">Consultar Cadastros</a></li>
+                <li><a href="deletar_cadastro.php">Deletar Cadastro</a></li>
+            </ul>
+        </nav>
+        
+        <div id="feedback-message"></div>
 
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Este script JavaScript ainda vai exibir as mensagens de feedback
+        // que vêm do processar_formulario.php após um redirecionamento.
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const message = urlParams.get('message');
+            const feedbackDiv = document.getElementById('feedback-message');
+
+            if (status && message && feedbackDiv) {
+                feedbackDiv.textContent = decodeURIComponent(message);
+                feedbackDiv.style.padding = '10px';
+                feedbackDiv.style.borderRadius = '5px';
+                feedbackDiv.style.textAlign = 'center';
+                feedbackDiv.style.marginTop = '20px';
+
+                if (status === 'success') {
+                    feedbackDiv.style.backgroundColor = '#d4edda';
+                    feedbackDiv.style.color = '#155724';
+                    feedbackDiv.style.border = '1px solid #c3e6cb';
+                } else if (status === 'error') {
+                    feedbackDiv.style.backgroundColor = '#f8d7da';
+                    feedbackDiv.style.color = '#721c24';
+                    feedbackDiv.style.border = '1px solid #f5c6cb';
+                }
+
+                // Opcional: Limpar os parâmetros da URL e a mensagem depois de um tempo
+                setTimeout(() => {
+                    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: newUrl }, '', newUrl);
+                    feedbackDiv.remove();
+                }, 5000); // Remove após 5 segundos
+            }
+        });
+    </script>
 </body>
 </html>

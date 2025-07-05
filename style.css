@@ -1,7 +1,301 @@
-body{
-    background-color: brown;
+/* --- 1. Estilos Gerais do Body e Títulos --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px; /* Padding geral para o body, cria uma margem ao redor do conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente no body */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
 }
 
-.form-group label{
+h1 {
+    color: #333;
+    margin-bottom: 20px;
     text-align: center;
+}
+
+/* --- 2. Estilo do Contêiner Principal (.container) --- */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Configurações para expansão e centralização */
+    width: 95%; /* Ocupa 95% da largura da tela */
+    max-width: 1400px; /* Limite máximo de largura para telas muito grandes */
+    margin: 20px auto; /* Centraliza o container horizontalmente e dá margem superior/inferior */
+    
+    box-sizing: border-box; /* Essencial para que padding e border não aumentem a largura total */
+}
+
+/* --- 3. Estilos do Formulário (Inserir/Deletar) --- */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px; /* Espaço entre label e input */
+}
+
+.form-group label {
+    flex-shrink: 0; /* Impede que a label encolha */
+    width: 150px; /* Largura fixa para as labels dos formulários */
+    text-align: right;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] { /* Incluí number aqui também */
+    flex-grow: 1; /* Permite que o input cresça para preencher o espaço restante */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    width: 100%; /* Botão ocupa 100% da largura do container do formulário */
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* --- 4. Estilos do Menu de Navegação (.main-nav) --- */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+    gap: 15px; /* Espaço entre os itens do menu */
+}
+
+.main-nav li {
+    background-color: #007bff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #0056b3;
+}
+
+/* --- 5. Estilos para Mensagens de Feedback (Sucesso/Erro/Info) --- */
+.message { /* Usado por PHP para exibir mensagens na página (não para p[style]) */
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Remove estilos antigos para p[style], pois estamos usando a classe .message agora */
+p[style] {
+    display: none !important; /* Esconde qualquer p com estilo inline antigo */
+}
+
+
+/* --- 6. Estilos para a Tabela de Consulta (expandir e centralizar) --- */
+
+/* Wrapper para a tabela que gerencia a rolagem horizontal, se necessário */
+.table-responsive {
+    width: 100%; /* Ocupa 100% da largura do .container */
+    /* overflow-x: auto; /* Deixei comentado. Descomente APENAS se a tabela ficar MUITO Larga em telas pequenas */
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.data-table {
+    width: 100%; /* A tabela AGORA OCUPARÁ 100% da largura do .table-responsive */
+    border-collapse: collapse;
+    
+    /* REMOVIDO: min-width: 800px; */
+    /* Este era o principal causador da barra de rolagem. A tabela se adapta à largura do pai. */
+}
+
+.data-table th, .data-table td {
+    padding: 12px 10px; /* Reduzi um pouco o padding horizontal */
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    
+    /* Permite que palavras longas quebrem linha para evitar expansão excessiva da coluna */
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+}
+
+.data-table th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border-top: 1px solid #e0e0e0;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+    background-color: #eaf6ff;
+    cursor: pointer;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.no-records {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+    background-color: #fefefe;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+}
+
+/* --- 7. Estilos para Links de Navegação (Voltar, Consultar) --- */
+.container p a {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block; /* Para aplicar margin-top */
+}
+
+.container p a:hover {
+    text-decoration: underline;
+}
+
+/* --- 8. Responsividade (@media queries) --- */
+
+@media (max-width: 1024px) {
+    .container {
+        width: 98%; /* Ocupa mais espaço em telas de notebooks menores */
+        max-width: 1000px; /* Reduz o limite máximo para notebooks */
+    }
+    .data-table th, .data-table td {
+        padding: 10px 8px; /* Ajusta padding para telas menores */
+        font-size: 0.85em; /* Reduz um pouco o tamanho da fonte */
+    }
+}
+
+@media (max-width: 768px) { /* Para tablets e telas médias */
+    body {
+        padding: 10px; /* Menos padding no body */
+    }
+    .container {
+        width: 100%; /* Ocupa quase toda a largura para aproveitar o espaço */
+        padding: 20px;
+        margin: 10px auto; /* Reduz a margem superior/inferior */
+    }
+
+    .form-group {
+        flex-direction: column; /* Labels e inputs empilham */
+        align-items: flex-start;
+        gap: 5px; /* Menos espaço entre label e input */
+    }
+
+    .form-group label {
+        width: 100%; /* Labels ocupam a largura total */
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+        width: 100%; /* Inputs ocupam a largura total */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Menu vira uma coluna */
+        align-items: center;
+    }
+
+    .data-table th, .data-table td {
+        padding: 8px 5px; /* Menos padding na tabela */
+        font-size: 0.8em; /* Fonte ainda menor na tabela */
+    }
+    
+    /* Se a tabela ainda estiver muito larga e você PRECISAR da barra de rolagem em tablets, descomente abaixo */
+    /* .table-responsive {
+        overflow-x: auto;
+    } */
+}
+
+@media (max-width: 480px) { /* Para smartphones */
+    body {
+        padding: 5px; /* Padding mínimo no body */
+    }
+    .container {
+        padding: 15px;
+        margin: 5px auto;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .main-nav a {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .data-table th, .data-table td {
+        padding: 5px 3px;
+        font-size: 0.7em;
+    }
+    /* Se a tabela for MUITO larga em celulares, aqui é o lugar mais comum para habilitar a barra de rolagem */
+    .table-responsive {
+        overflow-x: auto; 
+    }
+    .data-table {
+        min-width: 500px; /* Defina uma largura mínima para a tabela aqui, para que overflow-x funcione */
+    }
 }
