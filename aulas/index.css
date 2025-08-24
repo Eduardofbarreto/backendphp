@@ -1,0 +1,28 @@
+body{
+    background-color: #b5ae77;
+}
+
+h1{
+    border:2px solid white;
+    color:white;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 2px 4px 2px rgba(0,0,0,0.8);
+}
+
+label{
+    color:white;
+}
+
+input{
+    border:2px solid white;
+    background-color: black;
+}
+
+.button{
+    padding:10px;
+    border:2px solid rgb(81, 231, 11);
+    color: aliceblue;
+    background-color: black;
+}
