@@ -12,12 +12,12 @@ h1{
 }
 
 label{
-    color:white;
+    color:rgb(5, 0, 0);
 }
 
 input{
-    border:2px solid white;
-    background-color: black;
+    border:2px solid rgb(3, 0, 0);
+    background-color: rgb(250, 248, 248);
 }
 
 .button{

@@ -8,15 +8,39 @@
 </head>
 <body>
 
-    <h1>Formulário!</h1>
+    <h1>Calculadora</h1>
 
     <form action="processar_dados.php" method="post">
         <label for="numero1">Número 1:</label>
         <input type="number" id="numero1" name="numero1"><br><br>
         <label for="numero2">Número 2:</label>
         <input type="number" id="numero2" name="numero2"><br><br>
+
+        <label for="operacao">Escolha a operação:</label>
+        <select name="operacao" id="operacao">
+            <option value="soma">+</option>
+            <option value="subt">-</option>
+            <option value="mult">*</option>
+            <option value="div">/</option>
+        </select>
+
+        <br>
         
-        <button class="button" type="submit">Somar</button>
+        <button class="button" type="submit">Calcular</button>
+    </form>
+
+    <h2>
+        Conversão Porncetagem
+    </h2>
+
+    <form action="dados.php" method="post">
+        <label for="numero3">Digite um número para calcular: </label>
+        <input type="number" id="numero3" name="numero3">
+        <label for="numero4">Quantos %</label>
+        <input type="number" id="numero4" name="numero4">
+
+        <br>
+        <button class="button" type="submit">Calcular</button>
     </form>
 
 </body>
