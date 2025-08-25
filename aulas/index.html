@@ -1,73 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>PHP</title>
+    <title>Idade</title>
 </head>
 <body>
 
-    <h1>Calculadora</h1>
+    <h1>Qual sua idade:</h1>
 
-    <form action="processar_dados.php" method="post">
-        <label for="numero1">Número 1:</label>
-        <input type="number" id="numero1" name="numero1"><br><br>
-        <label for="numero2">Número 2:</label>
-        <input type="number" id="numero2" name="numero2"><br><br>
+        <form action="processar_dados.php" method="post">
 
-        <label for="operacao">Escolha a operação:</label>
-        <select name="operacao" id="operacao">
-            <option value="soma">+</option>
-            <option value="subt">-</option>
-            <option value="mult">*</option>
-            <option value="div">/</option>
-        </select>
+            <label for="idade">Idade:</label><br>
+            <input type="number" id="idade" name="idade">
 
-        <br>
-        
-        <button class="button" type="submit">Calcular</button>
-    </form>
+            <br>
 
-    <h2>
-        Conversão Porncetagem
-    </h2>
+            <button type="submit">Enviar!</button>
 
-    <form action="dados.php" method="post">
-        <label for="numero3">Digite um número para calcular: </label>
-        <input type="number" id="numero3" name="numero3">
-        <label for="numero4">Quantos %</label>
-        <input type="number" id="numero4" name="numero4">
-
-        <br>
-        <button class="button" type="submit">Calcular</button>
-    </form>
-
-
-    <h2>De quanto será o desconto?</h2>
-
-    <form action="desconto.php" method="post">
-        <label for="valor_da_compra">Qual valor da compra:</label>
-        <input type="number" id="valor_da_compra" name="valor_da_compra">
-        <label for="desconto">De quanto será o desconto:</label>
-        <input type="number" id="desconto" name="desconto">
-
-        <br><br>
-        <button class="button" type="submit">Calcular</button>
-    </form>
-
-    <h2>De quanto será o acréscimo?</h2>
-
-    <form action="acrescimo.php" method="post">
-        <label for="valor_da_compra1">Qual valor da compra:</label>
-        <input type="number" id="valor_da_compra1" name="valor_da_compra1">
-        <label for="acrescimo">De quanto será o acréscimo:</label>
-        <input type="number" id="acrescimo" name="acrescimo">
-
-        <br><br>
-
-        <button class="button" type="submit">Calcular</button>
-    </form>
+        </form>
 
 </body>
 </html>
