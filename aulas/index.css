@@ -1,17 +1,12 @@
 body{
-    background-color: rgb(203, 203, 248);
+    background-color: wheat;
 }
 
 h1{
-    color: rgb(248, 123, 40);
-    text-shadow: 4px 4px 4px rgba(0,0,0,0.8);
-    font-size: 3rem;
-    letter-spacing: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-label{
-    color:orange;
-}
 input{
-    border:1px solid black;
+    width: 300px;
 }

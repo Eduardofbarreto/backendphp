@@ -2,43 +2,23 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        if(isset($_POST['name']) && isset($_POST['nota1']) && 
-        isset($_POST['nota2']) && isset($_POST['nota3']) && isset($_POST['nota4']) ){
+        if(isset($_POST['numero'])){
 
-            $name = $_POST['name'];
+            $numero = intval($_POST['numero']);
 
-            $nota1 = $_POST['nota1'];
-            $nota2 = $_POST['nota2'];
-            $nota3 = $_POST['nota3'];
-            $nota4 = $_POST['nota4'];
+            $tabuada = array(1,2,3,4,5,6,7,8,9,10);
 
-            $media = ($nota1 + $nota2 + $nota3 + $nota4)/4;
-
-            if ($media >=9){
-                echo "Nota A";
-                echo "<br>";
-                echo $name . " sua média foi de " . $media;
-            }elseif($media >=7){
-                echo "Nota B";
-                echo "<br>";
-                echo $name . " sua nota foi de " . $media;
-            }elseif($media >=5){
-                echo "Nota C - Recuperação!";
-                echo "<br>";
-                echo $name . " sua nota foi de " . $media;
-            }else{
-                echo "Nota D - Reprovado";
-                echo "<br>";
-                echo $name . " sua nota foi de " . $media;
+            for($i = 0; $i <10; $i++){
+                $resultado = $numero * $tabuada[$i] . "<br>";
+                echo $numero . " x " . $tabuada[$i] . " = " . $resultado . "<br>";
             }
+
 
         }else{
             echo "Dados inválidos!";
         }
 
-    }
-
-    echo "<br>";
-    echo '<a href="index.html">Voltar</a>';
+}
+    
 
 ?>
