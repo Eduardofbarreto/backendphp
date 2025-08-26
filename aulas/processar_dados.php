@@ -1,21 +1,17 @@
 <?php
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(isset($_POST['cor'])){
+        if(isset($_POST['num'])){
 
-            $cor = $_POST['cor'];
+            $num = intval($_POST['num']);
 
-            switch($cor){
-                case "vermelho":
-                case "azul":
-                case "verde":
-                echo "Você escolheu a cor " . $cor;
-            break;
-            default:
-                echo "Nenhuma cor válida!";
+            if($num % 2 == 0){
+                echo $num . " é par!";
+            }else{
+                echo $num . " é ímpar!";
             }
         }else{
-            echo "Você não inseriu as informações!";
+            echo "Nenhum opção válida!";
         }
     }
 
