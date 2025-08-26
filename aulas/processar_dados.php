@@ -2,27 +2,43 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        if(isset($_POST['idade'])){
+        if(isset($_POST['name']) && isset($_POST['nota1']) && 
+        isset($_POST['nota2']) && isset($_POST['nota3']) && isset($_POST['nota4']) ){
 
-            $idade = intval($_POST['idade']);
+            $name = $_POST['name'];
 
-            if($idade < 0){
-                echo "Idade inválida!!";
-            }elseif($idade <=8){
-                echo "Você tem " . $idade . " anos e é uma CRIANÇA!";
-            }elseif($idade <= 12){
-                echo "Você tem " . $idade . " anos e é um pré-adolescente!";
-            }elseif($idade <=18){
-                echo "Você tem " . $idade . " anos e é um adolescente!";
-            }elseif($idade <=60){
-                echo "Você tem " . $idade . " anos e é um adulto!";
+            $nota1 = $_POST['nota1'];
+            $nota2 = $_POST['nota2'];
+            $nota3 = $_POST['nota3'];
+            $nota4 = $_POST['nota4'];
+
+            $media = ($nota1 + $nota2 + $nota3 + $nota4)/4;
+
+            if ($media >=9){
+                echo "Nota A";
+                echo "<br>";
+                echo $name . " sua média foi de " . $media;
+            }elseif($media >=7){
+                echo "Nota B";
+                echo "<br>";
+                echo $name . " sua nota foi de " . $media;
+            }elseif($media >=5){
+                echo "Nota C - Recuperação!";
+                echo "<br>";
+                echo $name . " sua nota foi de " . $media;
             }else{
-                echo "Você tem " . $idade . " anos e é um sênior!";
+                echo "Nota D - Reprovado";
+                echo "<br>";
+                echo $name . " sua nota foi de " . $media;
             }
+
         }else{
             echo "Dados inválidos!";
         }
 
     }
+
+    echo "<br>";
+    echo '<a href="index.html">Voltar</a>';
 
 ?>

@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Idade</title>
 </head>
 <body>
 
-    <h1>Qual sua idade:</h1>
+    <h1>Notas dos alunos:</h1>
 
         <form action="processar_dados.php" method="post">
 
-            <label for="idade">Idade:</label><br>
-            <input type="number" id="idade" name="idade">
+            <label for="name">Nome do aluno: </label><br>
+            <input type="text" id="name" name="name"><br>
 
             <br>
 
-            <button type="submit">Enviar!</button>
+            <label for="nota1">Digite a nota 1:</label><br>
+            <input type="number" id="nota1" name="nota1"><br>
 
+            <br>
+
+            <label for="nota2">Digite a nota 2:</label><br>
+            <input type="number" id="nota2" name="nota2"><br>
+
+            <br>
+
+            <label for="nota3">Digite a nota 3:</label><br>
+            <input type="number" id="nota3" name="nota3"><br>
+
+            <br>
+
+            <label for="nota4">Digite a nota 4:</label><br>
+            <input type="number" id="nota4" name="nota4"><br>
+
+            <br><br>
+
+            <button type="submit">Calcular</button>
         </form>
 
 </body>
