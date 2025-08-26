@@ -6,17 +6,16 @@
             $cor = $_POST['cor'];
 
             switch($cor){
-                case "azul":
-                echo "Você escolheu a cor " . $cor;
-            break;
                 case "vermelho":
+                case "azul":
+                case "verde":
                 echo "Você escolheu a cor " . $cor;
             break;
-                default:
+            default:
                 echo "Nenhuma cor válida!";
             }
         }else{
-            echo "Informações incorretas!";
+            echo "Você não inseriu as informações!";
         }
     }
 
