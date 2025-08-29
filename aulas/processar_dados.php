@@ -1,17 +1,15 @@
 <?php
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(isset($_POST['num'])){
+        if(isset($_POST['nome']) && isset($_POST['idade'])){
 
-            $num = intval($_POST['num']);
+            $nome = $_POST['nome'];
+            $idade = $_POST['idade'];
 
-            if($num % 2 == 0){
-                echo $num . " é par!";
-            }else{
-                echo $num . " é ímpar!";
-            }
+            echo "Dados salvos com sucesso!";
+
         }else{
-            echo "Nenhum opção válida!";
+            echo "Dados inválidos!";
         }
     }
 
