@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Idade</title>
+    <title>Jogo de adivinhação</title>
 </head>
 <body>
 
+    <p>Tente adivinhar o número entre 1 e 100.</p>
+
     <form action="processar_dados.php" method="post">
 
-        <label for="nome">Digite seu nome: </label><br>
-        <input type="text" id="nome" name="nome">
-
+        <label for="palpite">Seu Palpite:</label>
+        <input type="number" id="palpite" name="palpite" min="1" max="100" required>
         <br>
-
-        <label for="idade">Digite sua idade:</label><br>
-        <input type="number" id="idade" name="idade">
-
-        <br><br>
-
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Adivinhar</button>
 
     </form>
+
 
 </body>
 </html>
