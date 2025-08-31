@@ -7,6 +7,7 @@ h1{
     font-weight: 600;
 }
 
-input{
-    width: 300px;
+.form{
+    display: flex;
+    text-align: center;
 }
