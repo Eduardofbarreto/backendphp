@@ -1,25 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_POST['modelo']) && isset($_POST['ano']) && isset($_POST['cor'])){
-
-        $modelo = $_POST['modelo'];
-        $ano = $_POST['ano'];
-        $cor = $_POST['cor'];
-
-        <doctype html>
-        <head></head>
-        echo "Veículo cadastrado com sucesso!<br>";
-        echo $modelo . " do ano " . $ano . " na cor " . $cor . ".";
-    }else{
-        echo "Dados inválidos!";
-
-    }
-}
-
-=======
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     if(isset($_POST['numero'])){
@@ -41,6 +21,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         echo "Opção inválida!";
     }
 }
->>>>>>> 847caa0 (brincando com array)
 
 ?>
