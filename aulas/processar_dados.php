@@ -1,39 +1,21 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(isset($_POST['num1']) && isset($_POST['num2'])){
-        $num1 = $_POST['num1'];
-        $num2 = $_POST['num2'];
 
-        $op = $_POST['op'];
+    if(isset($_POST['num'])){
 
-        switch($op){
-            case '+':
-                $soma = $num1 + $num2;
-                echo "O resultado da soma é " . $soma . ".";
-            break;
-            case '-' :
-                $subt = $num1 - $num2;
-                echo "O resultado da subtração é " . $subt . ".";
-            break;
-            case '*':
-                $mult = $num1 * $num2;
-                echo "O resultado da multiplicação é " . $mult . ".";
-            break;
-            case '/':
-                if($num2 == 0){
-                    echo "Erro ao tentar dividir por 0!";
-                }else{
-                    $div = $num1 / $num2;
-                echo "O resultado da divisão é " . $div . ".";
-                }
-            break;
-            default:
-                echo "Algo está errado!";
+        $num = $_POST['num'];
+
+        $tab = [1,2,3,4,5,6,7,8,9,10];
+
+        for($i = 0; $i < 10; $i++){
+            $resultado = $num * $tab[$i];
+            echo "O resultado de " . $num . " x " . $tab[$i] . " = " . $resultado . "<br>";
         }
-    }else{
-        echo "Preencha os campos!";
     }
+
+    echo "<a href='index.html'>Voltar</a>";
 }
+
 
 ?>
