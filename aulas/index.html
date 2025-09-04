@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Escolha um item:</title>
+    <title>Quem é o maior:</title>
 </head>
 <body>
     
-    <h2>Escolha um item:</h2>
-    <form action="processar_dados.php" method="post">
-        <select name="numero" id="numero">Escolha um número
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-        </select>
-
-        <button type="submit">Tentar</button>
-
-    </form>
+    <div class="container">
+        <h2>Quem é o maior?</h2>
+        <form action="processar_dados.php" method="post">
+            <label for="num1">Digite o primeiro número:</label>
+            <input type="number" name="num1" id="num1">
+            <br><br>
+            <label for="num2">Digite o segundo número:</label>
+            <input type="number" name="num2" id="num2">
+            <br><br>
+            <label for="num3">Digite o terceiro número:</label>
+            <input type="number" name="num3" id="num3">
+            <br><br>
+            <button type="submit">Resolver</button>
 
         </form>
+
+
+        
     </div>
+
+
 </body>
 </html>

@@ -2,23 +2,21 @@
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    if(isset($_POST['numero'])){
+    if(isset($_POST['num1']) && isset($_POST['num2']) && isset($_POST['num3'])){
 
-        $numero = $_POST['numero'] - 1;
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];
+        $num3 = $_POST['num3'];
 
-        $diasDaSemana = [
-            'Segunda-feira',
-            'Terça-feira',
-            'Quarta-feira',
-            'Quinta-feira',
-            'Sexta-feira',
-            'Sábado',
-            'Domingo'
-        ];
-
-        echo "Você escolheu " . $diasDaSemana[$numero] . ".";
+        if($num1 > $num2 && $num1 > $num3){
+            echo $num1 . " é o maior número de todos!";
+        }elseif($num2 > $num1 && $num2 > $num3){
+            echo $num2 . " é o maior número de todos!";
+        }else{
+            echo $num3 . " é o maior número de todos!";
+        }
     }else{
-        echo "Opção inválida!";
+        echo "Dados inválidos!";
     }
 }
 
