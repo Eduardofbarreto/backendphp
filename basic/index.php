@@ -6,15 +6,10 @@
     <title>teste</title>
 </head>
 <body>
-    
-<?php
 
-$nome = "Eduardo";
-$sobrenome = "Barreto";
 
-echo "olá " . $nome . $sobrenome;
+<p>Hoje é <?php echo date("d/m/Y H:i:s") ?></p>
 
-?>
 
 </body>
 </html>
