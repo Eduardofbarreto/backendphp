@@ -9,7 +9,9 @@
     
 <?php
 
-echo "olá mundo!";
+$nome = "Eduardo";
+
+echo "olá " . $nome;
 
 ?>
 
