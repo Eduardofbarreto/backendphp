@@ -10,8 +10,9 @@
 <?php
 
 $nome = "Eduardo";
+$sobrenome = "Barreto";
 
-echo "olá " . $nome;
+echo "olá " . $nome . $sobrenome;
 
 ?>
 
