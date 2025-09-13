@@ -1,0 +1,39 @@
+body{
+    max-width: 1200px;
+    background-color: azure;
+}
+
+.respostas{
+    display: flex;
+    border:2px solid black;
+    gap: 15px;
+    padding: 10px;
+    background-color: tomato;
+}
+
+.item1{
+    border:1px solid black;
+    padding: 5px;
+    background-color: aliceblue;
+    text-
+}
+
+.item2{
+    border:1px solid black;
+    padding: 5px;
+}
+
+.caixa-flexivel{
+    display: flex;
+    background-color: #cccccc;
+}
+
+.caixa-flexivel div{
+    background-color: #333333;
+    color:#ffffff;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 24px;
+}

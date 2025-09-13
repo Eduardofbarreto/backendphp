@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>teste</title>
 </head>
 <body>
 
 <?php
 
-$idade = 38;
-$idade_daqui_cinco_anos = $idade + 5;
+$ano_atual = 2025;
 $ano_nascimento = 1987;
-$decadas = $idade/10;
+$idade = $ano_atual - $ano_nascimento;
+$nome = "Eduardo";
+$sobrenome = "Barreto";
 
 ?>
 
-
-<p>
-
-Idade atual: <?php echo $idade; ?><br>
-Idade em cinco anos: <?php echo $idade_daqui_cinco_anos; ?><br>
-Ano de nascimento: <?php echo $ano_nascimento; ?><br>
-
-</p>
+<div class="respostas">
+    <p class="item1">
+        Nome: <?php echo $nome . " " . $sobrenome ?><br>
+    </p>
+    <p class="item2">
+        Idade: <?php echo $idade . " anos" ?>
+    </p>
+</div>
 
 </body>
 </html>
