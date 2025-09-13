@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <body>
 
 <div class="form">
-    <form action="index.php" method="GET">
+    <form action="index.php" method="POST">
         <label for="user">User:</label>
         <input type="text" id="user" name="user">
         <br><br>
@@ -22,18 +22,16 @@
 
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    if(isset($_GET['user']) && isset($_GET['senha'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(!empty($_POST['user']) && !empty($_POST['senha'])){
 
-        $user = $_GET['user'];
-        $senha = $_GET['senha'];
+        $user = $_POST['user'];
+        $senha = $_POST['senha'];
 
-        echo "Seu usuário é : " . "<br>";
-        echo $user . "<br>";
-        echo "Sua senha é: " . "<br>";
-        echo $senha;
+        echo "Seu user é " . htmlspecialchars($user) . "<br>";
+        echo "Sua senha é ********";
     }else{
-        echo "Informações não preenchidas!";
+        echo "Por favor preencher os campos!";
     }
 }
 
