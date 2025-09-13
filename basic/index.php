@@ -8,30 +8,42 @@
 </head>
 <body>
 
-<div class="form">
-    <form action="index.php" method="POST">
-        <label for="user">User:</label>
-        <input type="text" id="user" name="user">
-        <br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha">
-        <br><br>
-        <button type="submit">Cadastrar</button>
-    </form>
-</div>
+    <div class="conteudo">
+        <form action="index.php" method="post">
+            <div class="caixa">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome">
+                <br><br>
+            </div>
+            <div class="caixa">
+                <label for="sobrenome">Sobrenome:</label><br>
+                <input type="text" id="sobrenome" name="sobrenome">
+                <br><br>
+            </div>
+            <div class="caixa">
+                <label for="data_nascimento">Data de Nascimento:</label><br>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+                <br><br>
+            </div>
+            <div class="botao">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
 
 <?php
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!empty($_POST['user']) && !empty($_POST['senha'])){
+    if(isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['data_nascimento'])){
 
-        $user = $_POST['user'];
-        $senha = $_POST['senha'];
+        $nome = $_POST['nome'];
+        $sobrenome = $_POST['sobrenome'];
+        $data_nascimento = $_POST['data_nascimento'];
 
-        echo "Seu user é " . htmlspecialchars($user) . "<br>";
-        echo "Sua senha é ********";
+        echo "Seu nome é " . $nome . " " . $sobrenome . "!<br>";
+        echo "Você nasceu dia " . $data_nascimento . "!<br>";
     }else{
-        echo "Por favor preencher os campos!";
+        echo "Você precisa responder o formulário!";
     }
 }
 
