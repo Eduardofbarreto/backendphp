@@ -10,20 +10,18 @@
 
 <?php
 
-$ano_atual = 2025;
-$ano_nascimento = 1987;
-$idade = $ano_atual - $ano_nascimento;
-$nome = "Eduardo";
-$sobrenome = "Barreto";
+$nome = "Eduardo F. Barreto";
+$mensagem = "Seja bem-vindo(a) " . $nome . "!<br>";
+$date = date("d/m/Y");
 
 ?>
 
-<div class="respostas">
-    <p class="item1">
-        Nome: <?php echo $nome . " " . $sobrenome ?><br>
+<div class="conteudo">
+    <p>
+        <?php echo $mensagem ?>
     </p>
-    <p class="item2">
-        Idade: <?php echo $idade . " anos" ?>
+    <p>
+        <?php echo $date ?>
     </p>
 </div>
 
