@@ -1,68 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Usuários</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="menu-buttons">
-        <a href="index.html" class="add-btn active">Adicionar</a>
-        <a href="consultar.php" class="consult-btn">Consultar</a>
-        <a href="editar.php" class="edit-btn">Editar</a>
-        <a href="deletar.php" class="delete-btn">Deletar</a>
-    </div>
-
-    <div class="container">
-        <h2>Adicionar Novo Usuário</h2>
-
-        <div id="status-message-container"></div>
-
-        <form action="adicionar.php" method="POST">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-
-            <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco" required>
-
-            <label for="cpf">CPF (apenas números):</label>
-            <input type="text" id="cpf" name="cpf" maxlength="11" pattern="\d{11}" title="Apenas 11 dígitos numéricos" placeholder="Ex: 12345678900" required>
-
-            <label for="data_nascimento">Data de Nascimento (DD-MM-AAAA):</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" required>
-
-            <label for="telefone">Telefone (apenas números):</label>
-            <input type="text" id="telefone" name="telefone" maxlength="11" pattern="\d{10,11}" title="Apenas 10 ou 11 dígitos numéricos" placeholder="Ex: 51987654321" required>
-
-            <input type="submit" value="Adicionar Usuário">
-        </form>
-    </div>
-
-    <script>
-        // Função para exibir mensagens de status
-        function displayStatusMessage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const status = urlParams.get('status');
-            const message = urlParams.get('mensagem');
-            const container = document.getElementById('status-message-container');
-
-            if (status && message && container) {
-                const div = document.createElement('div');
-                div.textContent = decodeURIComponent(message);
-                div.classList.add('message', status);
-                container.appendChild(div);
-
-                // Remove a mensagem após alguns segundos
-                setTimeout(() => {
-                    div.remove();
-                    // Opcional: remover os parâmetros da URL para evitar reexibir ao recarregar
-                    history.replaceState(null, '', window.location.pathname);
-                }, 5000);
-            }
-        }
-
-        window.onload = displayStatusMessage;
-    </script>
+    
 </body>
 </html>
