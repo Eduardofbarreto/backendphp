@@ -11,23 +11,29 @@
     <div class="conteudo">
         <form action="index.php" method="post">
             <div class="caixa">
-                <label for="nome">Nome:</label><br>
+                <label for="nome">Nome paciente:</label><br>
                 <input type="text" id="nome" name="nome">
-                <br><br>
+            </div>
+            <br>
+            <div class="caixa">
+                <label for="data_de_nascimento">Data de nascimento:</label><br>
+                <input type="date" id="data_de_nascimento" name="data_de_nascimento">
+            </div>
+            <br>
+            <div class="caixa">
+                <label for="cpf">Cpf:</label><br>
+                <input type="text" id="cpf" name="cpf">
             </div>
             <div class="caixa">
-                <label for="sobrenome">Sobrenome:</label><br>
-                <input type="text" id="sobrenome" name="sobrenome">
-                <br><br>
+                <label for="pressao">Pressão arterial:</label><br>
+                <input type="number" id="pressao" name="pressao">
             </div>
-            <div class="caixa">
-                <label for="data_nascimento">Data de Nascimento:</label><br>
-                <input type="date" id="data_nascimento" name="data_nascimento" required>
-                <br><br>
+            <br>
+            <div class="batimentos">
+                <label for="batimentos">Batimentos:</label><br>
+                <input type="number" id="batimentos" name="batimentos">
             </div>
-            <div class="botao">
-                <button type="submit">Cadastrar</button>
-            </div>
+            <br>
         </form>
     </div>
 
